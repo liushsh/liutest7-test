@@ -30,7 +30,7 @@ credentials = service["credentials"]
 url = 'DATABASE=%s;uid=%s;pwd=%s;hostname=%s;port=%s;' % ( credentials["db"],credentials["username"],credentials["password"],credentials["host"],credentials["port"])
 
 connection = ibm_db.connect(url, '', '')
-statement = ibm_db.prepare(connection, 'SELECT * from DOGS FETCH FIRST 10 ROWS ONLY')
+statement = ibm_db.prepare(connection, 'SELECT * from DASH111327.DOGS FETCH FIRST 10 ROWS ONLY')
 print 'SUCCESS1!!'
 ibm_db.execute(statement)
 print 'SUCCESS2!!'
