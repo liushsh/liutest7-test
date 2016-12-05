@@ -1,0 +1,11 @@
+applications:
+- path: .
+  memory: 128M
+  instances: 1
+  domain: mybluemix.net
+  name: liutest7
+  host: liutest7
+  disk_quota: 1024M
+  services:
+  - dashDB for Analytics-bd
+  buildpack: python_buildpack
