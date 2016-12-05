@@ -29,13 +29,17 @@ service = vcap_services['dashDB'][0]
 credentials = service["credentials"]
 url = 'DATABASE=%s;uid=%s;pwd=%s;hostname=%s;port=%s;' % ( credentials["db"],credentials["username"],credentials["password"],credentials["host"],credentials["port"])
 print "URl = %s" %url
+
 connection = ibm_db.connect(url, '', '')
 statement = ibm_db.prepare(connection, 'SELECT * from DASH111327.DOGS FETCH FIRST 10 ROWS ONLY')
 print 'SUCCESS1!!'
+
 ibm_db.execute(statement)
 print 'SUCCESS2!!'
+
  out = "<html><table border=\"1\"><tr><td>Table Name</td><td>Table Schema</td>" 
 print 'SUCCESS3!!'
+
 data = ibm_db.fetch_tuple(statement)
 while (data):
    out = out + "<tr><td>"+data[0]+"</td><td>"+data[1]+"</td></tr>"
