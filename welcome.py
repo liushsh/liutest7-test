@@ -33,17 +33,17 @@ connection = ibm_db.connect(url, '', '')
 statement = ibm_db.prepare(connection, 'SELECT * from DOGS FETCH FIRST 10 ROWS ONLY')
 print 'SUCCESS1!!'
 ibm_db.execute(statement)
-# out = "<html><table border=\"1\"><tr><td>Table Name</td><td>Table Schema</td>" 
+ out = "<html><table border=\"1\"><tr><td>Table Name</td><td>Table Schema</td>" 
 data = ibm_db.fetch_tuple(statement)
 while (data):
- #   out = out + "<tr><td>"+data[0]+"</td><td>"+data[1]+"</td></tr>"
+   out = out + "<tr><td>"+data[0]+"</td><td>"+data[1]+"</td></tr>"
 #    print "data:[0]"'+ data[0]
     data = ibm_db.fetch_tuple(statement)
 
 ibm_db.free_stmt(statement)
 ibm_db.close(connection)
-# out = out + "</table></html>"
-# return out
+ out = out + "</table></html>"
+ return out
 
 @app.route('/myapp')
 def WelcomeToMyapp():
